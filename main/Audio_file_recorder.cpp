@@ -21,7 +21,7 @@ void Audio_file_recorder::start()
     if (!m_recording)
     {
         m_recording = true;
-        std::thread t(&Audio_file_recorder::record, this, m_buffer);
+        std::thread t(&Audio_file_recorder::record, this);
         t.detach();
     }
 }

@@ -17,6 +17,8 @@
 #include "I2S_Mic.hpp"
 #include "Audio_file_recorder.hpp"
 
+#include "mock_mic.hpp" // For test purposes only
+
 #define BCLK_IO1 GPIO_NUM_4 // I2S bit clock io number
 #define WS_IO1 GPIO_NUM_5   // I2S word select io number
 #define DIN_IO1 GPIO_NUM_19 // I2S data in io number
@@ -57,7 +59,9 @@ extern "C" void app_main(void)
 
     I2S_Mic i2s_mic(mic_gpio_config);
 
-    Audio_file_recorder recorder(&i2s_mic);
+    Mock_Mic mock_mic;
+
+    Audio_file_recorder recorder(&mock_mic);
 
     // The application will run indefinitely
     while (true)

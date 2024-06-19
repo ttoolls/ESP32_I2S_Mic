@@ -56,15 +56,15 @@ esp_err_t WebServer::wavGetHandler(httpd_req_t *req)
     httpd_resp_set_hdr(req, "Content-Disposition", "inline; filename=\"sample.wav\"");
     httpd_resp_send(req, (const char *)wavFile, wavFileLength);
 
-    httpd_resp_sendstr_chunk(req, "<audio controls preload=\"none\"><source src=\"");
-    httpd_resp_sendstr_chunk(req, req->uri);
-    httpd_resp_sendstr_chunk(req, entry->d_name);
-    if (entry->d_type == DT_DIR)
-    {
-        httpd_resp_sendstr_chunk(req, "/");
-    }
-    httpd_resp_sendstr_chunk(req, "\" type=\"audio/wav\">");
-    httpd_resp_sendstr_chunk(req, "</audio>");
+    // httpd_resp_sendstr_chunk(req, "<audio controls preload=\"none\"><source src=\"");
+    // httpd_resp_sendstr_chunk(req, req->uri);
+    // httpd_resp_sendstr_chunk(req, entry->d_name);
+    // if (entry->d_type == DT_DIR)
+    // {
+    //     httpd_resp_sendstr_chunk(req, "/");
+    // }
+    // httpd_resp_sendstr_chunk(req, "\" type=\"audio/wav\">");
+    // httpd_resp_sendstr_chunk(req, "</audio>");
 
     return ESP_OK;
 }

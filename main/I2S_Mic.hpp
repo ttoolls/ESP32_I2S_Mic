@@ -1,3 +1,5 @@
+#pragma once
+
 #include "driver/i2s_std.h"
 #include "driver/gpio.h"
 
@@ -17,7 +19,7 @@ public:
     I2S_Mic();
     ~I2S_Mic();
     void setup(const i2s_std_gpio_config_t &gpio_config);
-    size_t read(uint8_t *buffer, size_t buff_size);
+    virtual size_t read(uint8_t *buffer, size_t buff_size);
 
     static constexpr uint32_t bit_sample = 16;
     static constexpr uint32_t sample_rate = 44100;
